@@ -90,15 +90,6 @@ function findInArray(array, number) {
         return false
     }
 
-     as an argument (array)
-    // and return the average of them
-    // ex:
-    // average([1,2,3]) => 2
-    // average([10, 20, 3]) => 11
-    // Code:
-
-
-
 function anualSalary(employees, name) {
     // Write a function that receives an array with object, each one with information about the employees
     // the function also receives a string (name) with the name of an employee
@@ -201,6 +192,7 @@ function createObject(name, surname, age, city) {
         user.age = age;
         user.city = city;
     return user;
+}
 
 function highestRating(arr) {
     // Write a function that receives an array (arr) with information of players as an argument
@@ -223,7 +215,7 @@ function highestRating(arr) {
     let indexOfMaxRating = arrayOfRatings.indexOf(Math.max(arrayOfRatings))
     
     return `The best player is  ${arr[indexOfMaxRating][name]}, with ${arr[indexOfMaxRating][rating]} points.`
-
+}
 
 
 function objectKeys(obj) {
@@ -289,7 +281,6 @@ module.exports = {
     isOdd,
     arraySum,
     findInArray,
-    average,
     findTheWord,
     anualSalary,
     randomNumbers,
