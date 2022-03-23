@@ -6,7 +6,6 @@ const {
     isOdd,
     arraySum,
     findInArray,
-    average,
     anualSalary,
     randomNumbers,
     triangleArea,
@@ -82,17 +81,17 @@ const {
     });
     });
   
-    describe('average', function() {
-      it('should return 2 for [1,2,3]', function() {
-          expect(average([1,2,3])).toBe(2)
-      })
-      it('should return 11 for [10, 20, 3]', function() {
-        expect(average([10, 20, 3])).toBe(11)
-      })
-      it('should return 1 for [1, 1, 1, 1]', function() {
-        expect(average([1, 1, 1, 1])).toBe(1)
-      })
-    })
+    // describe('average', function() {
+    //   it('should return 2 for [1,2,3]', function() {
+    //       expect(average([1,2,3])).toBe(2)
+    //   })
+    //   it('should return 11 for [10, 20, 3]', function() {
+    //     expect(average([10, 20, 3])).toBe(11)
+    //   })
+    //   it('should return 1 for [1, 1, 1, 1]', function() {
+    //     expect(average([1, 1, 1, 1])).toBe(1)
+    //   })
+    // })
   
     describe('anualSalary',function(){
       var employees = [{
