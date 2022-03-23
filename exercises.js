@@ -32,7 +32,7 @@ function sayHello(name, age) {
     // sayHello('Ramiro', 28) => 'Hi, my name is Ramiro. I am 28 years old.'
     // INTENTEN HACERLO CON BACKTICKS
     // Code:
-    return `Hi, my name is ${name}. I am ${age} years old`;
+    return `Hi, my name is ${name}. I am ${age} years old.`;
    
 }
 
@@ -43,8 +43,11 @@ function isEven(number) {
     // isEven(20) => true
     // isEven(21) => false
     // Code:
-
+        if(Number.isInteger(number % 2)){
+        return true
+    }else{ return false };
 }
+
   
 function isOdd(number) {
     // Write a function that receives a number as an argument (number)
@@ -53,8 +56,11 @@ function isOdd(number) {
     // isOdd(20) => false
     // isOdd(21) => true
     // Code:
-
+    if(Number.isInteger(number % 2)){
+        return false
+    }else{ return true };
 }
+
 
 function arraySum(array) {
     // Write a function that receives an array of integers as an argument (array)
@@ -64,7 +70,11 @@ function arraySum(array) {
     // arraySum([3, 4, 1]) => 8
     // Code:
     // NO HAGAN TRAMPA, NO VALE USAR REDUCE
-
+    let sum = 0;
+    for (let i=0; i < array.length; i++){
+        sum + array[i]
+    }
+    return sum;
 }
 
 function findInArray(array, number) {
@@ -74,22 +84,24 @@ function findInArray(array, number) {
     // findInArray([5, 2, 4, 5], 2) => true
     // findInArray([3, 4, 1], 2) => false
     // Code:
+        if (array.indexOf(number) > 0){
+            return true
+        }
+        return false
+    }
 
-}
-
-function average(array) {
-    // Write a function that receives an array of integers as an argument (array)
+     as an argument (array)
     // and return the average of them
     // ex:
     // average([1,2,3]) => 2
     // average([10, 20, 3]) => 11
     // Code:
 
-}
+
 
 function anualSalary(employees, name) {
     // Write a function that receives an array with object, each one with information about the employees
-    // the funciton also receives a string (name) with the name of an employee
+    // the function also receives a string (name) with the name of an employee
     // return the salary of that employee
     // ex:
     // var employees = [{
@@ -108,7 +120,11 @@ function anualSalary(employees, name) {
     // anualSalary(employees, 'Simon'); => 12000
     // anualSalary(employees, 'Sole;); => 6000
     // Code:
-
+    for (let i = 0; i < employees.length; i++){
+        if(employees[i]["name"] === name){
+            return employees[i]["salary"]*12
+        }
+    }
 }
 
 function randomNumbers(number) {
@@ -118,7 +134,11 @@ function randomNumbers(number) {
     // randomNumbers(5); => [23, 11, 4, 76, 30]
     // randomNumbers(3); => [3, 54, 18]
     // Code:
-
+    let arrayOfNumbers = []
+    while (arrayOfNumbers.length < number){
+        arrayOfNumbers.push(Math.floor(Math.random() * 100))
+    }
+    return arrayOfNumbers
 }
 
 function triangleArea(base, height) {
@@ -127,7 +147,8 @@ function triangleArea(base, height) {
     // ex:
     // triangleArea(5, 10); => 25
     // triangleArea(3, 20); => 30
-
+    let area = (base * height)/2;
+    return area;
 }
 
 function isVowel(letter) {
@@ -138,7 +159,13 @@ function isVowel(letter) {
     // ex:
     // isVowel('a') => 'Is vowel';
     // isVowel(6) => 'Is not vowel';
-
+    if( letter ==! '' || letter.length > 1 ){
+        return "Incorrect Data"
+    }
+    if( letter === 'a' || letter === 'e'|| letter ===  'i' || letter === 'o'|| letter === 'u'){
+        return "Is vowel";
+    } 
+    return "Is not a vowel"
 }
 
 function findTheWord(string) {
@@ -148,7 +175,13 @@ function findTheWord(string) {
     // findTheWord('welcome to viseven') => true;
     // findTheWord('hi, my name is Agustin') => false;
     // Code:
-
+    let arrayOfWords = string.split(" ")
+        for (let i = 0; i < arrayOfWords.length; i++){
+            if(arrayOfWords[i] === "viseven"){
+                return true;
+            }
+            return false
+        }
 }
 
 function createObject(name, surname, age, city) {
@@ -162,8 +195,12 @@ function createObject(name, surname, age, city) {
     //     city: 'Cordoba'
     // }
     // Code:
-
-}
+    let user = {}
+        user.name = name;
+        user.surname = surname;
+        user.age = age;
+        user.city = city;
+    return user;
 
 function highestRating(arr) {
     // Write a function that receives an array (arr) with information of players as an argument
@@ -178,8 +215,16 @@ function highestRating(arr) {
     //
     // highestRating(players) => 'The best player is Soledad, with 9999 points.'
     // Code:
+    let copyOfArr = arr.slice
+    let arrayOfRatings = []
+    for (let i = 0; i < copyOfArr.length; i++){
+        arrayOfRatings.push(copyOfArr[i][rating])
+    }
+    let indexOfMaxRating = arrayOfRatings.indexOf(Math.max(arrayOfRatings))
+    
+    return `The best player is  ${arr[indexOfMaxRating][name]}, with ${arr[indexOfMaxRating][rating]} points.`
 
-}
+
 
 function objectKeys(obj) {
     // Write a function that receives an object (obj) as an argument
@@ -194,7 +239,8 @@ function objectKeys(obj) {
     //
     // objectKeys(employee) => ['name', 'age', 'city', 'company']
     // Code:
-
+    let arrOfProps = Object.keys(obj);
+        return arrOfProps;
 }
 
 function showRespectToRiquelme(arr) {
@@ -224,7 +270,12 @@ function showRespectToRiquelme(arr) {
     //   { name: 'Simon'},
     // ]
     // Code:
-    
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i][name] === 'Riquelme'){
+            arr[i].respect === "You are the best";
+        }
+    }
+    return arr;
 }
 
 // ---------------------------------------------------------------------------------------------------------------
